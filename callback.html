@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Back to Tool Bridge</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { font: 17px -apple-system, system-ui, sans-serif; margin: 0; padding: 48px 16px; text-align: center; background: Canvas; color: CanvasText; }
+  a { color: #3478f6; }
+</style>
+</head>
+<body>
+<p>Returning to Tool Bridge…</p>
+<p><a id="back" href="siribridge://oauth/callback">Open Tool Bridge</a></p>
+<script>
+  // OAuth's answer (code and state, or an error) goes straight back to the
+  // app. Nothing is stored or sent anywhere else; PKCE keeps the code useless
+  // to anyone without the app's verifier.
+  var to = "siribridge://oauth/callback" + location.search;
+  document.getElementById("back").href = to;
+  location.replace(to);
+</script>
+</body>
+</html>
