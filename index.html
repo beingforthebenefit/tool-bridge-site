@@ -1,16 +1,91 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Tool Bridge</title><style>body{font:17px/1.5 -apple-system,system-ui,sans-serif;max-width:640px;margin:48px auto;padding:0 16px;color:#1d1d1f;background:#fff}
-@media (prefers-color-scheme:dark){body{color:#f5f5f7;background:#000}a{color:#4da3ff}}img{width:96px;border-radius:22px}
-code{font:14px ui-monospace,Menlo,monospace;background:#f2f2f7;padding:2px 6px;border-radius:6px;word-break:break-all;color:#1d1d1f}h2{font-size:20px;margin-top:32px}
-@media (prefers-color-scheme:dark){code{background:#1c1c1e;color:#f5f5f7}}</style></head>
-<body><img src="icon.png" alt=""><h1>Tool Bridge</h1>
-<p>Ask Siri for anything your MCP servers can do. Tool Bridge picks the tool, fills it in, asks before anything changes, and answers in a sentence. On-device first, then Private Cloud Compute, then your own API key if you add one.</p>
+<title>Tool Bridge: MCP by Voice</title>
+<meta name="description" content="Ask Siri for anything your MCP servers can do. Tool Bridge for iPhone, iPad and Apple Watch.">
+<meta name="apple-itunes-app" content="app-id=6834958972">
+<meta property="og:title" content="Tool Bridge: MCP by Voice"><meta property="og:description" content="Your MCP servers, by voice."><meta property="og:image" content="https://beingforthebenefit.github.io/tool-bridge-site/icon.png">
+<link rel="icon" href="icon.png">
+<style>
+:root{--fg:#1d1d1f;--muted:#6e6e73;--bg:#fff;--card:#f5f5f7;--line:#d2d2d7;--link:#0066cc;--accent:#6b3fd4;--btn-bg:#000;--btn-fg:#fff}
+@media (prefers-color-scheme:dark){:root{--fg:#f5f5f7;--muted:#a1a1a6;--bg:#000;--card:#1c1c1e;--line:#38383a;--link:#4da3ff;--accent:#a78bfa;--btn-bg:#fff;--btn-fg:#000}}
+*{box-sizing:border-box}
+body{font:17px/1.5 -apple-system,system-ui,sans-serif;margin:0;color:var(--fg);background:var(--bg)}
+a{color:var(--link)}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+header{text-align:center;padding:56px 0 24px}
+header img{width:112px;height:112px;border-radius:25px;box-shadow:0 4px 18px rgba(0,0,0,.18)}
+h1{font-size:40px;line-height:1.1;margin:20px 0 8px;letter-spacing:-.5px}
+.sub{font-size:21px;color:var(--muted);margin:0 0 24px}
+.get{display:inline-block;background:var(--btn-bg);color:var(--btn-fg);text-decoration:none;padding:10px 24px;border-radius:12px;font-weight:600;font-size:19px;line-height:1.15;text-align:left}
+.get small{display:block;font-size:11px;font-weight:500;opacity:.8}
+.note{font-size:14px;color:var(--muted);margin-top:12px}
+.shots{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:24px 16px 12px;margin:0 -16px}
+.shots img{height:440px;width:auto;border-radius:18px;scroll-snap-align:center;flex:none}
+h2{font-size:24px;margin:44px 0 12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.grid div{background:var(--card);border-radius:14px;padding:16px 18px}
+.grid b{display:block;margin-bottom:4px}
+.grid p{margin:0;font-size:15px;color:var(--muted)}
+.said p{margin:6px 0;font-size:19px;color:var(--accent);font-weight:500}
+code{font:14px ui-monospace,Menlo,monospace;background:var(--card);padding:2px 6px;border-radius:6px;word-break:break-all;color:var(--fg)}
+footer{border-top:1px solid var(--line);margin-top:48px;padding:20px 0 40px;font-size:14px;color:var(--muted)}
+@media (max-width:520px){h1{font-size:32px}.shots img{height:360px}}
+</style></head>
+<body><div class="wrap">
+<header>
+<img src="icon.png" alt="Tool Bridge icon">
+<h1>Tool Bridge</h1>
+<p class="sub">Your MCP servers, by voice.</p>
+<a class="get" href="https://apps.apple.com/app/id6834958972"><small>Download on the</small>App Store</a>
+<p class="note">For iPhone, iPad and Apple Watch, with iOS 27. Free for 14 days, then a one-time unlock shared with your family.</p>
+</header>
+
+<div class="shots" aria-label="Screenshots">
+<img src="shots/iphone-1.jpg" alt="Ask Siri about your own servers">
+<img src="shots/iphone-2.jpg" alt="Nothing changes without your OK">
+<img src="shots/iphone-3.jpg" alt="See how each answer was found">
+<img src="shots/iphone-4.jpg" alt="Add a server by its address">
+<img src="shots/iphone-5.jpg" alt="Many steps, one phrase">
+<img src="shots/iphone-6.jpg" alt="Every request, on your device">
+<img src="shots/iphone-7.jpg" alt="Private by design">
+</div>
+
+<h2>Ask Siri, hear the answer</h2>
+<p>Tool Bridge connects Siri to MCP servers: the same tools Claude and ChatGPT use to read and change your own services. Add a server’s address, and ask for what it knows or have it make a change, hands free.</p>
+<div class="said"><p>“Ask Tool Bridge what’s on my groceries list.”</p><p>“Ask Tool Bridge to add figs to groceries.”</p><p>“Ask Tool Bridge what’s on the calendar Friday.”</p></div>
+
+<h2>How it works</h2>
+<div class="grid">
+<div><b>Add a server by its address</b><p>Servers that use OAuth open their own sign-in page. No client ID, no setup.</p></div>
+<div><b>It learns your tools</b><p>Tool Bridge reads each server’s tools, then picks the right one for what you said and fills in the details.</p></div>
+<div><b>Nothing changes without your OK</b><p>Anything that sends or changes something asks you first.</p></div>
+<div><b>See how it was answered</b><p>Every request shows which tool ran, with what, and how long it took.</p></div>
+</div>
+
+<h2>Private by design</h2>
+<div class="grid">
+<div><b>On your device first</b><p>Apple’s on-device model understands requests, with Private Cloud Compute for the harder ones.</p></div>
+<div><b>No account, no tracking</b><p>Servers, tokens and history stay on your devices and in your own iCloud. <a href="privacy.html">Privacy</a></p></div>
+<div><b>Your own AI key, if you like</b><p>Optional, and History shows exactly what went where.</p></div>
+</div>
+
+<h2>And more</h2>
+<div class="grid">
+<div><b>Recipes</b><p>Several steps under one phrase, like a morning briefing of the weather and today’s events.</p></div>
+<div><b>Names put right</b><p>Say a name the way it sounds and the app finds the one the server means.</p></div>
+<div><b>Everywhere</b><p>Widgets, Shortcuts actions, Spotlight and an Apple Watch app, on iPhone, iPhone Duo and iPad.</p></div>
+</div>
+
 <h2>Try it without a server of your own</h2>
 <p>In the app: Servers → + → paste an address.</p>
 <ul><li><code>https://tool-bridge-demo.beingforthebenefit.workers.dev/mcp</code>: lists, notes, a calendar and a forecast, with invented data that resets every hour.</li>
 <li><code>https://tool-bridge-demo.beingforthebenefit.workers.dev/mcp-auth</code>: the same behind an OAuth sign-in (an Approve button, no password).</li></ul>
 <p>Then ask “What’s on my groceries list?” in the app, or say “Ask Tool Bridge what’s on my groceries list.”</p>
-<h2>Support</h2>
+
+<h2 id="support">Support</h2>
 <p>A question, a server that won’t connect, or an idea: <a href="https://github.com/beingforthebenefit/tool-bridge-site/issues/new">open an issue</a> and we’ll answer there. Leave out tokens and anything private.</p>
-<p><a href="privacy.html">Privacy</a> · <a href="oauth-client.json">OAuth client metadata</a></p>
-<p style="font-size:13px;color:#86868b">Tool Bridge works with Siri. It isn’t made by Apple; Siri is a trademark of Apple Inc.</p></body></html>
+
+<footer>
+<p><a href="https://apps.apple.com/app/id6834958972">App Store</a> · <a href="privacy.html">Privacy</a> · <a href="#support">Support</a> · <a href="oauth-client.json">OAuth client metadata</a></p>
+<p>Tool Bridge works with Siri. It isn’t made by Apple; Siri is a trademark of Apple Inc. © 2026 Gerald Todd</p>
+</footer>
+</div></body></html>
