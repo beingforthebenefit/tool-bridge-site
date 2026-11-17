@@ -12,11 +12,11 @@ body{font:17px/1.5 -apple-system,system-ui,sans-serif;margin:0;color:var(--fg);b
 a{color:var(--link)}
 .wrap{max-width:760px;margin:0 auto;padding:0 16px}
 header{text-align:center;padding:56px 0 24px}
-header img{width:112px;height:112px;border-radius:25px;box-shadow:0 4px 18px rgba(0,0,0,.18)}
+header>img{width:112px;height:112px;border-radius:25px;box-shadow:0 4px 18px rgba(0,0,0,.18)}
 h1{font-size:40px;line-height:1.1;margin:20px 0 8px;letter-spacing:-.5px}
 .sub{font-size:21px;color:var(--muted);margin:0 0 24px}
-.get{display:inline-block;background:var(--btn-bg);color:var(--btn-fg);text-decoration:none;padding:10px 24px;border-radius:12px;font-weight:600;font-size:19px;line-height:1.15;text-align:left}
-.get small{display:block;font-size:11px;font-weight:500;opacity:.8}
+.get{display:inline-block;line-height:0}
+.get img{width:180px;height:60px;border-radius:0;box-shadow:none}
 .note{font-size:14px;color:var(--muted);margin-top:12px}
 .shots{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:24px 16px 12px;margin:0 -16px}
 .shots img{height:440px;width:auto;border-radius:18px;scroll-snap-align:center;flex:none}
@@ -35,7 +35,7 @@ footer{border-top:1px solid var(--line);margin-top:48px;padding:20px 0 40px;font
 <img src="icon.png" alt="Tool Bridge icon">
 <h1>Tool Bridge</h1>
 <p class="sub">Your MCP servers, by voice.</p>
-<a class="get" href="https://apps.apple.com/app/id6834958972"><small>Download on the</small>App Store</a>
+<a class="get" href="https://apps.apple.com/app/id6834958972"><picture><source srcset="appstore-badge-white.svg" media="(prefers-color-scheme: dark)"><img src="appstore-badge-black.svg" alt="Download on the App Store" width="180" height="60"></picture></a>
 <p class="note">For iPhone, iPad and Apple Watch, with iOS 27. Free for 14 days, then a one-time unlock shared with your family.</p>
 </header>
 
@@ -51,7 +51,8 @@ footer{border-top:1px solid var(--line);margin-top:48px;padding:20px 0 40px;font
 
 <h2>Ask Siri, hear the answer</h2>
 <p>Tool Bridge connects Siri to MCP servers: the same tools Claude and ChatGPT use to read and change your own services. Add a server’s address, and ask for what it knows or have it make a change, hands free.</p>
-<div class="said"><p>“Ask Tool Bridge what’s on my groceries list.”</p><p>“Ask Tool Bridge to add figs to groceries.”</p><p>“Ask Tool Bridge what’s on the calendar Friday.”</p></div>
+<p>Say “Ask Tool Bridge”. When Siri asks what to ask, say your request:</p>
+<div class="said"><p>“What’s on my groceries list?”</p><p>“Add figs to groceries.”</p><p>“What’s on the calendar Friday?”</p></div>
 
 <h2>How it works</h2>
 <div class="grid">
@@ -79,7 +80,7 @@ footer{border-top:1px solid var(--line);margin-top:48px;padding:20px 0 40px;font
 <p>In the app: Servers → + → paste an address.</p>
 <ul><li><code>https://tool-bridge-demo.beingforthebenefit.workers.dev/mcp</code>: lists, notes, a calendar and a forecast, with invented data that resets every hour.</li>
 <li><code>https://tool-bridge-demo.beingforthebenefit.workers.dev/mcp-auth</code>: the same behind an OAuth sign-in (an Approve button, no password).</li></ul>
-<p>Then ask “What’s on my groceries list?” in the app, or say “Ask Tool Bridge what’s on my groceries list.”</p>
+<p>Then ask “What’s on my groceries list?” in the app, or say “Ask Tool Bridge” to Siri and then “What’s on my groceries list?”</p>
 
 <h2 id="support">Support</h2>
 <p>A question, a server that won’t connect, or an idea: <a href="https://github.com/beingforthebenefit/tool-bridge-site/issues/new">open an issue</a> and we’ll answer there. Leave out tokens and anything private.</p>
